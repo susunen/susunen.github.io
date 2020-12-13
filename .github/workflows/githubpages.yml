@@ -8,9 +8,6 @@ on:
   push:
     branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "deploy"
@@ -25,7 +22,7 @@ jobs:
     - name: Checkout 
       uses: actions/checkout@v2
       with:
-        submodelus: true
+        submodules: true
         fetch-depth: 0
     
     # Step 2: Setup latest version of Hugo
@@ -38,10 +35,9 @@ jobs:
     - name: Clean public directory
       run: rm -rf public
       
-      
     # Step 4: Build the site with Hugo
     - name: Build
-      run: hugo --theme=mainroad
+      run: hugo # --theme=mainroad
 
     # Step 5: Push the generated site to gh-pages branch
     - name: Deploy
