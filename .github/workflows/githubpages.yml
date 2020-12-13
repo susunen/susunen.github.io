@@ -37,7 +37,7 @@ jobs:
       
     # Step 4: Build the site with Hugo
     - name: Build
-      run: hugo --theme=mainroad
+      run: hugo # --theme=mainroad
 
     # Step 5: Push the generated site to gh-pages branch
     - name: Deploy
