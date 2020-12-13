@@ -37,17 +37,15 @@ jobs:
     # Step 3: Clean
     - name: Clean public directory
       run: rm -rf public
-   
-   # Step 4: Build the site with Hugo
-   - name: Build
-     run: hugo --theme=mainroad
-     
-   # Step 5: Push the generated site to gh-pages branch
-   - name: Deploy
-     uses: peaceiris/actions-gh-pages@v3
-     with:
-       github-token: ${{ secrets.GITHUB_TOKEN }}
-       publish-dir: ./public
-     
       
-    - name: 
+      
+    # Step 4: Build the site with Hugo
+    - name: Build
+      run: hugo --theme=mainroad
+
+    # Step 5: Push the generated site to gh-pages branch
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        publish-dir: ./public
